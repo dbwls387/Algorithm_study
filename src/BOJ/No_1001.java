@@ -1,3 +1,5 @@
+//A - B
+
 package BOJ;
 
 import java.util.Scanner;

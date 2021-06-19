@@ -1,3 +1,5 @@
+//피보나치 함수
+
 package BOJ;
 
 import java.util.Scanner;
