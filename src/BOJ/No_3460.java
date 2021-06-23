@@ -14,7 +14,7 @@ public class No_3460 {
         }
 
         for (int i = 0; i < T; i++) {
-            int[] arr = new int[1000];
+            int[] arr = new int[n_arr[i]];
             int w = 0;
             while (true) {   //이진수 구하기
                 arr[w++] = n_arr[i] % 2;
