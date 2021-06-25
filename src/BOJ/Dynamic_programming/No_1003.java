@@ -1,6 +1,6 @@
 //피보나치 함수
 
-package BOJ;
+package BOJ.Dynamic_programming;
 
 import java.util.Scanner;
 

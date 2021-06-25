@@ -1,6 +1,6 @@
 //소수 찾기
 
-package BOJ;
+package BOJ.Mathematics;
 
 import java.util.Scanner;
 

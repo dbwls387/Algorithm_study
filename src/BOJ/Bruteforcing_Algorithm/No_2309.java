@@ -1,6 +1,6 @@
 //일곱 난쟁이
 
-package BOJ;
+package BOJ.Bruteforcing_Algorithm;
 
 import java.util.Arrays;
 import java.util.Scanner;

@@ -1,6 +1,6 @@
 //약수 구하기
 
-package BOJ;
+package BOJ.Mathematics;
 
 import java.util.Scanner;
 

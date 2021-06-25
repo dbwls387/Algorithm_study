@@ -1,6 +1,6 @@
 //지능형 기차 2
 
-package BOJ;
+package BOJ.Implementation;
 
 import java.util.Scanner;
 public class No_2460 {

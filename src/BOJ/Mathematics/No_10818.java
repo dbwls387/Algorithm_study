@@ -1,6 +1,6 @@
 //최소, 최대
 
-package BOJ;
+package BOJ.Mathematics;
 
 import java.util.Scanner;
 

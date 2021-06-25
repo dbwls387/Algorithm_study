@@ -1,6 +1,6 @@
 //피보나치 수 5
 
-package BOJ;
+package BOJ.Mathematics;
 
 import java.util.Scanner;
 public class No_10870 {

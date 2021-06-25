@@ -1,6 +1,6 @@
 //최대공약수와 최소공배수
 
-package BOJ;
+package BOJ.Mathematics;
 
 import java.util.Scanner;
 public class No_2609 {

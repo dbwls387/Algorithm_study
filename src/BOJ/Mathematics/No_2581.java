@@ -1,6 +1,6 @@
 //소수
 
-package BOJ;
+package BOJ.Mathematics;
 
 import java.util.Scanner;
 public class No_2581 {

@@ -1,6 +1,6 @@
 //N번째 큰 수
 
-package BOJ;
+package BOJ.Implementation;
 
 import java.util.Arrays;
 import java.util.Scanner;

@@ -1,6 +1,6 @@
 //쉽게 푸는 문제
 
-package BOJ;
+package BOJ.Implementation;
 
 import java.util.Scanner;
 public class No_1292 {
