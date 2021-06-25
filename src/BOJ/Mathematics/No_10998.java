@@ -1,11 +1,11 @@
-//A + B
+//A x B
 
-package BOJ;
+package BOJ.Mathematics;
 
 import java.util.Scanner;
 
-public class No_1000 {
-    static Scanner sc=new Scanner(System.in);
+public class No_10998 {
+    static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         int A;
         int B;
@@ -14,7 +14,7 @@ public class No_1000 {
         A = sc.nextInt();
         B = sc.nextInt();
 
-        result = A+B;
+        result = A * B;
 
         System.out.println(result);
     }

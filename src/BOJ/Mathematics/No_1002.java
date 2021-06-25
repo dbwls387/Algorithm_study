@@ -1,6 +1,6 @@
 //터렛
 
-package BOJ;
+package BOJ.Mathematics;
 
 import java.util.Scanner;
 
