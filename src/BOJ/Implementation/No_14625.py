@@ -7,6 +7,7 @@ cnt = 0
 h_current = h1
 m_current = m1
 while True:
+    # if str(n) in str(h_current) or str(n) in str(m_current):
     if h_current % 10 == n or h_current // 10 == n or m_current % 10 == n or m_current // 10 == n:
         cnt += 1
     if h2 == h_current and m2 == m_current:
