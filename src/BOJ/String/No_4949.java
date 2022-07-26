@@ -17,7 +17,7 @@ public class No_4949 {
 			if (input.compareTo(".") == 0) {
 				break;
 			}
-
+			
 			Stack<Character> stack = new Stack<>();
 
 			for (int i = 0; i < input.length(); i++) {
