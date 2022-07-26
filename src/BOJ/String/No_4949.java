@@ -14,7 +14,7 @@ public class No_4949 {
 
 		while (true) {
 			input = sc.nextLine();
-			if (input.compareTo(".") == 0) { 
+			if (input.compareTo(".") == 0) {
 				break;
 			}
 
@@ -27,14 +27,14 @@ public class No_4949 {
 				} else if (iChar == ')') {
 					if (stack.empty() || stack.peek() != '(') {
 						stack.push(iChar);
-						break;						
+						break;
 					} else {
 						stack.pop();
 					}
 				} else if (iChar == ']') {
 					if (stack.empty() || stack.peek() != '[') {
 						stack.push(iChar);
-						break;								
+						break;
 					} else {
 						stack.pop();
 					}
