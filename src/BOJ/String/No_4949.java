@@ -14,7 +14,7 @@ public class No_4949 {
 
 		while (true) {
 			input = sc.nextLine();
-			if (input.compareTo(".") == 0) {
+			if (input.compareTo(".") == 0) {	// 0이 들어오면 종료 
 				break;
 			}
 			
