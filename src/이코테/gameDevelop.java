@@ -1,4 +1,4 @@
-package study_13Al;
+package 이코테;
 
 import java.util.Scanner;
 
