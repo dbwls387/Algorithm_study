@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 
 public class No_1527 {
 
-	static int A, B, cnt = 0;
+	static long A, B, cnt = 0;
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -16,24 +16,20 @@ public class No_1527 {
 		A = Integer.parseInt(st.nextToken());
 		B = Integer.parseInt(st.nextToken());
 
-		for (int i = A; i <= B; i++) {
-			String str;
-			str = Integer.toString(i);
+		gold(4);
+		gold(7);
 
-			int check = 0;
-			for (int j = 0; j < str.length(); j++) {
-				if (str.charAt(j) != '4' && str.charAt(j) != '7') {
-					check = 0;
-					break;
-				}
-				if (str.charAt(j) == '4' || str.charAt(j) == '7') {
-					check = 1;
-				}
-			}
-			if (check == 1) {
-				cnt++;
-			}
-		}
 		System.out.println(cnt);
+	}
+
+	static void gold(long n) {
+		if (n > B) {
+			return;
+		} else if (n >= A) {
+			cnt++;
+		}
+
+		gold(n * 10 + 4);
+		gold(n * 10 + 7);
 	}
 }
