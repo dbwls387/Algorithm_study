@@ -1,3 +1,5 @@
+// BOJ 1697번 숨바꼭질 
+
 package BOJ.DfsBfs;
 
 import java.io.BufferedReader;
@@ -24,7 +26,7 @@ public class No_1697 {
 
 		ans = 0;
 
-		if (N == K) {
+		if (N == K) {	// 처음부터 같은 위치가 입력될 경우 
 			System.out.println(0);
 		} else {
 			bfs();
