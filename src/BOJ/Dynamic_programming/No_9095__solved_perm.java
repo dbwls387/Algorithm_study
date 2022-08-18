@@ -1,5 +1,5 @@
 // BOJ 9095번 1,2,3 더하기 
-// 조합
+// 순열
 
 package BOJ.Dynamic_programming;
 
