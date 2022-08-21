@@ -1,4 +1,4 @@
-// BOJ 1697번 숨바꼭질 
+// BOJ 1697번 숨바꼭질
 
 package BOJ.DfsBfs;
 
@@ -11,8 +11,8 @@ import java.util.StringTokenizer;
 public class No_1697 {
 
 	static int N, K, ans;
-	static Queue<Integer> q;
-	static boolean[] checked;
+	static Queue<Integer> que = new ArrayDeque<>();
+	static boolean[] visited = new boolean[100001];
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -21,48 +21,43 @@ public class No_1697 {
 		N = Integer.parseInt(st.nextToken());
 		K = Integer.parseInt(st.nextToken());
 
-		q = new ArrayDeque<>();
-		checked = new boolean[100001];
-
-		ans = 0;
-
-		if (N == K) {	// 처음부터 같은 위치가 입력될 경우 
+		if (N == K) // 처음부터 같은 위치가 입력될 경우
 			System.out.println(0);
-		} else {
+		else {
 			bfs();
 			System.out.println(ans);
 		}
 	}
 
 	static void bfs() {
-		q.add(N);
-		checked[N] = true;
+		que.add(N);
+		visited[N] = true;
 
-		while (!q.isEmpty()) {
-			int currentSize = q.size();
-			for (int i = 0; i < currentSize; i++) {
-				int current = q.poll();
-				if (current + 1 == K || current - 1 == K || current * 2 == K) {
-					q.clear();
+		while (!que.isEmpty()) {
+			int size = que.size();
+			for (int i = 0; i < size; i++) {
+				int x = que.poll();
+
+				if (x + 1 == K || x - 1 == K || x * 2 == K) {
+					que.clear();
 					break;
 				}
 
-				if (!checked[current + 1]) {
-					q.add(current + 1);
-					checked[current + 1] = true;
+				if (x + 1 <= 100000 && !visited[x + 1]) {
+					visited[x + 1] = true;
+					que.add(x + 1);
 				}
-
-				if (!checked[current - 1]) {
-					q.add(current - 1);
-					checked[current - 1] = true;
+				if (x - 1 >= 0 && !visited[x - 1]) {
+					visited[x - 1] = true;
+					que.add(x - 1);
 				}
-
-				if (!checked[current * 2]) {
-					q.add(current * 2);
-					checked[current * 2] = true;
+				if (2 * x >= 0 && 2 * x <= 100000 && !visited[x * 2]) {
+					visited[x * 2] = true;
+					que.add(x * 2);
 				}
 			}
 			ans++;
 		}
 	}
+
 }
