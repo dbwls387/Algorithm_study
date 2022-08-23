@@ -4,14 +4,14 @@ package SWEA;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.HashSet;
 import java.util.StringTokenizer;
-import java.util.TreeSet;
 
 public class No_7465 {
 
 	static int T, N, M;
 	static int[] parent, A, B;
-	static TreeSet<Integer> ts;
+	static HashSet<Integer> hs;
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -34,12 +34,12 @@ public class No_7465 {
 
 				union(a, b);
 			}
-			ts = new TreeSet<Integer>();
+			hs = new HashSet<Integer>();
 			for (int i = 1; i <= N; i++) {
-				ts.add(findSet(i));
+				hs.add(findSet(i));
 			}
 
-			sb.append("#").append(t).append(" ").append(ts.size()).append("\n");
+			sb.append("#").append(t).append(" ").append(hs.size()).append("\n");
 		}
 		System.out.println(sb);
 	}
