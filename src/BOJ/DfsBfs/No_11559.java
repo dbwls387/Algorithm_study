@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-public class BOJ_11559 {
+public class No_11559 {
 
 	static int ans;
 	static char[][] map = new char[12][];
