@@ -16,7 +16,7 @@ public class No_1504 {
 	static PriorityQueue<Edge> pqueue;
 	static boolean[] visit;
 	static int[] cost;
-	static int INF = 800000;
+	static int INF = 200000000;
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -47,10 +47,11 @@ public class No_1504 {
 
 		int mustDis = dijkstra(v1, v2);
 
-		int result1 = dijkstra(1, v1) + mustDis + dijkstra(v2, N);
-		int result2 = dijkstra(1, v2) + mustDis + dijkstra(v1, N);
+		int result1 = dijkstra(1, v1) + dijkstra(v2, N);
+		int result2 = dijkstra(1, v2) + dijkstra(v1, N);
 
 		min = Math.min(result1, result2);
+		min += mustDis;
 
 		if (min >= INF)
 			System.out.println(-1);
@@ -62,7 +63,7 @@ public class No_1504 {
 		pqueue = new PriorityQueue<>((e1, e2) -> e1.c - e2.c);
 		visit = new boolean[N + 1];
 		Arrays.fill(cost, INF);
-		
+
 		cost[start] = 0;
 		pqueue.add(new Edge(start, 0));
 
