@@ -1,4 +1,4 @@
-// BOJ 2636번 치즈 
+// BOJ 2636번 치즈 (골드 4)
 
 package BOJ.Implementation;
 
