@@ -41,8 +41,14 @@ public class No_21608 {
 			for (int j = 0; j < N; j++) {
 				int cnt = 0;
 
-				System.out.println("-----------------");
-				System.out.println("현재 번호: " + map[i][j]);
+				int idx = 0;
+				for (int k = 0; k < N * N; k++) {
+					if (arr[k][0] == map[i][j]) {
+						idx = k;
+						break;
+					}
+				}
+
 				for (int d = 0; d < 4; d++) {
 					int ny = i + dy[d];
 					int nx = j + dx[d];
@@ -51,9 +57,7 @@ public class No_21608 {
 						continue;
 
 					for (int k = 1; k <= 4; k++) {
-						System.out.println(map[ny][nx] + " -- " + arr[map[i][j] - 1][0]);
-						if (map[ny][nx] == arr[map[i][j] - 1][k]) {
-//							System.out.print(map[ny][nx] + " ");
+						if (map[ny][nx] == arr[idx][k]) {
 							cnt++;
 							break;
 						}
@@ -70,9 +74,6 @@ public class No_21608 {
 					ans += 100;
 				else if (cnt == 4)
 					ans += 1000;
-
-//				System.out.println(ans);
-				System.out.println("/ 개수 : " + cnt);
 			}
 		}
 
@@ -114,14 +115,6 @@ public class No_21608 {
 
 		Node node = pque.poll();
 		map[node.y][node.x] = arr[idx][0];
-
-		System.out.println("--------------------------");
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
-				System.out.print(map[i][j] + " ");
-			}
-			System.out.println();
-		}
 	}
 
 	static class Node implements Comparable<Node> {
