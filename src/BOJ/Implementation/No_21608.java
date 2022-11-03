@@ -1,6 +1,6 @@
 // BOJ 21608번 상어 초등학교 
 
-package BOJ;
+package BOJ.Implementation;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
