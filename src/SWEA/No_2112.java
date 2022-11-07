@@ -39,7 +39,6 @@ public class No_2112 {
 				dfs(0, 0);
 			}
 
-//			System.out.println(t + ": " + ans);
 			sb.append("#").append(t).append(" ").append(ans).append("\n");
 		}
 
@@ -51,7 +50,6 @@ public class No_2112 {
 			return;
 
 		if (idx == D) {
-			System.out.println(cnt + " " + ans);
 			if (check()) {
 				ans = Math.min(ans, cnt);
 			}
@@ -71,10 +69,8 @@ public class No_2112 {
 		}
 		dfs(idx + 1, cnt + 1);
 
-		for (int i = 0; i < D; i++) {
-			for (int j = 0; j < W; j++) {
-				map[i][j] = copy_map[i][j];
-			}
+		for (int j = 0; j < W; j++) {
+			map[idx][j] = copy_map[idx][j];
 		}
 	}
 
@@ -89,7 +85,7 @@ public class No_2112 {
 					cnt = 1;
 					same = map[j][i];
 				}
-				
+
 				if (cnt == K)
 					continue outer;
 			}
