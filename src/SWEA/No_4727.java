@@ -1,5 +1,7 @@
 // SWEA 4727번 견우와 직녀 
 
+package SWEA;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
