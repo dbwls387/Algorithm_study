@@ -1,5 +1,7 @@
 // 4193번 수영대회 결승전 
 
+package SWEA;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
@@ -8,7 +10,7 @@ import java.util.StringTokenizer;
 
 public class No_4193 {
 
-	static int T, N, A, B, C, D;
+	static int T, N, A, B, C, D, ans;
 	static int[][] map;
 	static Queue<Node> tonado;
 
@@ -32,23 +34,22 @@ public class No_4193 {
 				st = new StringTokenizer(br.readLine());
 				for (int j = 0; j < N; j++) {
 					map[i][j] = Integer.parseInt(st.nextToken());
-
-					if (map[i][j] == 2)
-						tonado.offer(new Node(i, j, 2));
 				}
 			}
 
 			st = new StringTokenizer(br.readLine());
-			A = Integer.parseInt(st.nextToken());
+			A = Integer.parseInt(st.nextToken()); // 시작 위치
 			B = Integer.parseInt(st.nextToken());
 
 			st = new StringTokenizer(br.readLine());
-			C = Integer.parseInt(st.nextToken());
+			C = Integer.parseInt(st.nextToken()); // 도착 위치
 			D = Integer.parseInt(st.nextToken());
 
+			ans = Integer.MAX_VALUE;
 			visit = new boolean[N][N];
 			bfs();
 
+			System.out.println("#" + t + " " + ans);
 		}
 
 	}
@@ -61,8 +62,10 @@ public class No_4193 {
 		while (!que.isEmpty()) {
 			Node node = que.poll();
 
-			if (node.y == C && node.x == D)
+			if (node.y == C && node.x == D) {
+				ans = Math.min(ans, node.time);
 				break;
+			}
 
 			for (int d = 0; d < 4; d++) {
 				int ny = node.y + dy[d];
@@ -71,10 +74,21 @@ public class No_4193 {
 				if (ny < 0 || nx < 0 || ny >= N || nx >= N || visit[ny][nx] || map[ny][nx] == 1)
 					continue;
 
-				que.offer(new Node(ny, nx, node.time + 1));
-				
+				if (map[ny][nx] == 2) {
+					if ((node.time + 1) % 3 == 0) {
+						que.offer(new Node(ny, nx, node.time + 1));
+					} else {
+						que.offer(new Node(node.y, node.x, node.time + 1));
+					}
+				} else if (map[ny][nx] == 0) {
+					que.offer(new Node(ny, nx, node.time + 1));
+					visit[ny][nx] = true;
+				}
 			}
 		}
+
+		if (ans == Integer.MAX_VALUE)
+			ans = -1;
 	}
 
 	static class Node {
