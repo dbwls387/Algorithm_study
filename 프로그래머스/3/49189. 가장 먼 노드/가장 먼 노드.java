@@ -1,34 +1,35 @@
-import java.util.*;
+import java.util.*; 
 
 class Solution {
     
-    static ArrayList<Integer>[] list; 
-    static int[] depth; 
-    static int n;
+    static int n; 
+    static int[] dis; 
+    static List<Integer>[] list; 
     
     public int solution(int n, int[][] edge) {
-        this.n = n;
-        depth = new int[n + 1]; 
+        this.n = n; 
         
         list = new ArrayList[n + 1]; 
         for(int i = 1; i <= n; i++) {
             list[i] = new ArrayList<>(); 
-        } 
+        }
         
         for(int i = 0; i < edge.length; i++) {
             int a = edge[i][0]; 
             int b = edge[i][1]; 
-            list[a].add(b); 
-            list[b].add(a); 
+            
+            list[a].add(b);
+            list[b].add(a);
         }
         
+        dis = new int[n + 1]; 
         bfs(); 
         
+        Arrays.sort(dis); 
+        
         int cnt = 0; 
-        Arrays.sort(depth); 
-        int max = depth[n]; 
         for(int i = n; i >= 1; i--) {
-            if(max == depth[i]) 
+            if(dis[i] == dis[n])    // dis[n]은 가장 멀리 떨어진 노드의 길이 
                 cnt++; 
             else 
                 break;
@@ -38,27 +39,28 @@ class Solution {
     }
     
     static void bfs() {
-        boolean[] visit = new boolean[n + 1]; 
         Queue<Integer> que = new ArrayDeque<>(); 
+        boolean[] visit = new boolean[n + 1]; 
         
         que.add(1); 
-        visit[1] = true; 
+        visit[1] = true;
         
         while(!que.isEmpty()) {
-            int a = que.poll(); 
+            int node = que.poll(); 
             
-            for(int i = 0; i < list[a].size(); i++) { 
-                int b = list[a].get(i);
+            for(int i = 0; i < list[node].size(); i++) {
+                int a = list[node].get(i); 
                 
-                if(visit[b]) 
+                if(visit[a]) 
                     continue; 
                 
-                que.add(b); 
-                visit[b] = true; 
-                depth[b] = depth[a] + 1; 
+                que.add(a); 
+                visit[a] = true; 
+                
+                dis[a] = dis[node] + 1; 
             }
-        } 
+        }
         
-        return; 
+        return;         
     }
 }
