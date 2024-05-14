@@ -1,24 +1,24 @@
 class Solution {
     
-    static int k, answer, N; 
-    static int[] src, tgt;
-    static int[][] dungeons;
+    static int N, k, answer; 
+    static int[][] dungeons; 
+    
+    static int[] src, tgt; 
     static boolean[] select; 
     
     public int solution(int k, int[][] dungeons) {
-        this.k = k; 
-        this.dungeons = dungeons; 
-        
-        answer = 0; 
-        
         N = dungeons.length; 
-        src = new int[N]; 
-        tgt = new int[N];
-        select = new boolean[N]; 
+        this.dungeons = dungeons; 
+        this.k = k; 
         
+        src = new int[N]; 
+        tgt = new int[N]; 
+        select = new boolean[N]; 
         for(int i = 0; i < N; i++) {
             src[i] = i; 
         }
+        
+        answer = 0; 
         perm(0); 
         
         return answer;
@@ -26,8 +26,8 @@ class Solution {
     
     static void perm(int tgtIdx) {
         if(tgtIdx == N) {
-            int cnt = 0; 
             int cur = k; 
+            int cnt = 0; 
             
             for(int i = 0; i < N; i++) {
                 if(cur < dungeons[tgt[i]][0]) 
@@ -37,7 +37,7 @@ class Solution {
                 cnt++; 
             }
             
-            answer = Math.max(answer, cnt); 
+            answer = Math.max(answer, cnt);  
             
             return; 
         }
@@ -49,7 +49,7 @@ class Solution {
             tgt[tgtIdx] = src[i]; 
             select[i] = true; 
             perm(tgtIdx + 1); 
-            select[i] = false;
+            select[i] = false;             
         }
     }
 }
