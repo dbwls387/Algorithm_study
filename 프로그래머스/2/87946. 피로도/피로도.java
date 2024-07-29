@@ -1,3 +1,5 @@
+import java.util.*; 
+
 class Solution {
     
     static int N, k, answer; 
@@ -19,25 +21,25 @@ class Solution {
         }
         
         answer = 0; 
-        perm(0); 
+        perm(0);
         
         return answer;
     }
     
     static void perm(int tgtIdx) {
         if(tgtIdx == N) {
-            int cur = k; 
+            int tired = k; 
             int cnt = 0; 
             
-            for(int i = 0; i < N; i++) {
-                if(cur < dungeons[tgt[i]][0]) 
+            for(int i = 0; i < N; i++) {              
+                if(tired < dungeons[tgt[i]][0]) 
                     break; 
                 
-                cur -= dungeons[tgt[i]][1]; 
+                tired -= dungeons[tgt[i]][1]; 
                 cnt++; 
             }
             
-            answer = Math.max(answer, cnt);  
+            answer = Math.max(answer, cnt); 
             
             return; 
         }
@@ -47,9 +49,10 @@ class Solution {
                 continue; 
             
             tgt[tgtIdx] = src[i]; 
-            select[i] = true; 
+            
+            select[i] = true;             
             perm(tgtIdx + 1); 
-            select[i] = false;             
+            select[i] = false;
         }
     }
 }
