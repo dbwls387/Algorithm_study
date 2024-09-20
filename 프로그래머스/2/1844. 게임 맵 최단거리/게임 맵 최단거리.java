@@ -2,16 +2,16 @@ import java.util.*;
 
 class Solution {
     
-    static int N, M, answer;
+    static int answer, N, M; 
     static int[][] maps; 
     
     static int[] dy = {-1, 1, 0, 0}; 
-    static int[] dx = {0, 0, -1, 1};
+    static int[] dx = {0, 0, -1, 1}; 
     
     public int solution(int[][] maps) {
         this.maps = maps; 
-        N = maps.length;
-        M = maps[0].length;
+        N = maps.length; 
+        M = maps[0].length; 
         
         answer = Integer.MAX_VALUE; 
         bfs(); 
@@ -27,7 +27,7 @@ class Solution {
         boolean[][] visit = new boolean[N][M]; 
         
         que.offer(new Node(0, 0, 1)); 
-        visit[0][0] = true;
+        visit[0][0] = true; 
         
         while(!que.isEmpty()) {
             Node node = que.poll(); 
@@ -40,11 +40,11 @@ class Solution {
                 int ny = node.y + dy[d]; 
                 int nx = node.x + dx[d]; 
                 
-                if(ny < 0 || nx < 0 || ny >= N || nx >= M || maps[ny][nx] == 0 || visit[ny][nx])
+                if(ny < 0 || nx < 0 || ny >= N || nx >= M || visit[ny][nx] || maps[ny][nx] == 0 ) 
                     continue; 
                 
                 que.offer(new Node(ny, nx, node.dir + 1)); 
-                visit[ny][nx] = true;
+                visit[ny][nx] = true; 
             }
         }
     }
@@ -54,8 +54,8 @@ class Solution {
         
         public Node (int y, int x, int dir) {
             this.y = y; 
-            this.x = x;
-            this.dir = dir;
+            this.x = x; 
+            this.dir = dir; 
         }
     }
 }
