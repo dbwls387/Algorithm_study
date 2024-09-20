@@ -1,5 +1,3 @@
-import java.util.*; 
-
 class Solution {
     
     static int N, k, answer; 
@@ -9,10 +7,11 @@ class Solution {
     static boolean[] select; 
     
     public int solution(int k, int[][] dungeons) {
-        N = dungeons.length; 
-        this.dungeons = dungeons; 
         this.k = k; 
+        this.dungeons = dungeons; 
+        answer = 0; 
         
+        N = dungeons.length; 
         src = new int[N]; 
         tgt = new int[N]; 
         select = new boolean[N]; 
@@ -20,26 +19,25 @@ class Solution {
             src[i] = i; 
         }
         
-        answer = 0; 
-        perm(0);
+        perm(0); 
         
         return answer;
     }
     
     static void perm(int tgtIdx) {
         if(tgtIdx == N) {
-            int tired = k; 
+            int cur = k; 
             int cnt = 0; 
             
-            for(int i = 0; i < N; i++) {              
-                if(tired < dungeons[tgt[i]][0]) 
-                    break; 
+            for(int i = 0; i < N; i++) {
+                if(dungeons[tgt[i]][0] > cur) 
+                    break;
                 
-                tired -= dungeons[tgt[i]][1]; 
+                cur -= dungeons[tgt[i]][1]; 
                 cnt++; 
             }
             
-            answer = Math.max(answer, cnt); 
+            answer = Math.max (answer, cnt); 
             
             return; 
         }
@@ -50,9 +48,9 @@ class Solution {
             
             tgt[tgtIdx] = src[i]; 
             
-            select[i] = true;             
+            select[i] = true; 
             perm(tgtIdx + 1); 
-            select[i] = false;
+            select[i] = false; 
         }
     }
 }
